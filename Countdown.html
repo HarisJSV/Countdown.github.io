@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="icon" type="image/x-icon" href="c-removebg-preview.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Dosis:wght@200&family=M+PLUS+Rounded+1c&family=Poppins&display=swap"
+        rel="stylesheet">
+</head>
+
+<body background="bg.jpeg" class="bg-cover">
+    <nav class="bg-black border-gray-200">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center">
+                <img src="c-removebg-preview.png" class="h-8 mr-3" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Countdown
+                    Timer</span>
+            </a>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0 md:border-0">
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-white md:text-yellow-700 md:p-0  cursor-pointer aria-current="
+                            page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-white  md:p-0 hover:text-blue-700 cursor-pointer">Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 class="text-black text-7xl font-bold flex justify-end mt-60 mr-20">It's the final countdown!!</h1>
+    <div class="time text-white text-4xl flex justify-end basis-24 mt-5 mr-96">
+        <div>
+            <p id="days" class="mr-5 bg-yellow-500 rounded-2xl p-3 border-4 border-black w-20">00</p>
+            <span>Days</span>
+        </div>
+        <span class="mt-2 mr-1">:</span>
+        <div class="ml-2">
+            <p id="hrs" class="mr-5 bg-yellow-500 rounded-2xl p-3 border-4 border-black w-20">00</p>
+            <span>Hours</span>
+        </div>
+        <span class="mt-2 mr-6">:</span>
+        <div class="ml-2">
+            <p id="min" class="mr-5 bg-yellow-500 rounded-2xl p-3 border-4 border-black w-20">00</p>
+            <span>Minutes</span>
+        </div>
+        <span class="mt-2 mr-1">:</span>
+        <div>
+            <p id="sec" class="mr-5 bg-yellow-500 rounded-2xl p-3 border-4 border-black w-20">00</p>
+            <span>Seconds</span>
+        </div>
+    </div>
+    <div>
+        <img src="rocket.png" class="rocket">
+    </div>
+    <script>
+        var c = new Date("Oct 2, 2023 00:00:00").getTime();
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = c - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("days").innerHTML=days;
+            document.getElementById("hrs").innerHTML=hours;
+            document.getElementById("min").innerHTML=minutes;
+            document.getElementById("sec").innerHTML=seconds;
+
+        },1000);
+    </script>
+    <footer
+        class="fixed bottom-0 left-0 z-20 w-full p-4 bg-black shadow md:flex md:items-center md:justify-between md:p-6 ">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#"
+                class="hover:underline">Countdown-Timer</a>.</span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6"><ion-icon name="logo-instagram"></ion-icon></a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6"><ion-icon name="logo-Github"></ion-icon></a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>
